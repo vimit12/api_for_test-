@@ -1,0 +1,30 @@
+/* .login {
+    margin-top: 8.5em;
+    padding: 1em; */
+    /* border: 1px solid rgb(189, 186, 186); */
+    /* width: 100%;
+}
+
+.container {
+    width: 50%;
+} */
+
+.item {
+    width: 120px;
+    min-height: 120px;
+    max-height: auto;
+    float: left;
+    margin: 3px;
+    padding: 3px;
+}
+/* .jumbotron{
+    background-color: rgb(255, 255, 255);
+    width: 80%;
+}
+.container-fluid{
+    margin: 0em 5em 0em 3em;
+} */
+
+.result{
+    
+}

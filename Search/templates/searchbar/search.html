@@ -1,0 +1,86 @@
+{%extends 'searchbar/index.html' %}
+{% load static %}
+{%block nav%}
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="btn btn-info" href="/api?query_param={{request.session.search_value}}">API</a>
+        </li>
+        <li class="nav-item">
+            <a class="btn btn-info" href="/apifull" style="margin-left: 1em;">Full API</a>
+        </li>
+        
+    </ul>
+    <form class="form-inline my-2 my-lg-0" method="POST">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" name="search" style="width: 500px;">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+</div>
+{%endblock%}
+{%block content%}
+<!-- <div class="jumbotron jumbotron-fluid login ">
+    <div class="container-fluid">
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" placeholder="Enter Item to search" name="search">
+                </div>
+                
+                <div class="col-sm-2" align="center">
+                    <button type="submit" class="btn btn-info mb-2">Submit</button>
+                </div>
+                <div class="col-sm-2" align="center">
+                    <a class="btn btn-info" href="/api?query_param={{request.session.search_value}}">API</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div> -->
+
+    <div class="result shadow-lg p-3 mb-5 bg-white rounded">
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            {% if message.tags == "warning" %}
+            <p class="messages" align="center"
+                style="background: #fcd1b8;height: 3em;padding-top: 0.65em;opacity: 0.5;">
+                {{ message }}</p>
+            {% else %}
+            <p class="messages" align="center"
+                style="background: #c5fcde;height: 3em;padding-top: 0.65em;opacity: 0.5;">
+                {{ message }}</p>
+            {% endif %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+    
+        {% if product_obj %}
+        <div class="row" style="">
+            {% for product in product_obj %}
+                
+                    <div class="col-sm-4" style="padding: 1em;">
+                        <div class="card" style="width: 28em;">
+                            <div class="item">
+                                <img src="{{product.product_image}}" class="card-img-top" alt="..."
+                                style="max-width: 720px;max-height: 660px;">
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text"><strong>Product : {{product.product_name}}</strong></p>
+                                <p class="card-text"><strong>Price : {{product.product_price}}</strong></p>
+                                <p class="card-text">Link : <a class="text-decoration-none"
+                                        href="{{product.product_url}}">{{product.product_url}}</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
+            
+        {% endif %}
+
+    </div>
+
+{% endblock %}
