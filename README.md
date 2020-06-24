@@ -16,9 +16,9 @@ Frontend - used bootstrap , HTML, CSS Backend - Django
 
 This project gives the search result from all 3 API and save those to local database(sQlite3).
 
-Things which  I ll try to improve it that - 
+Room for Improvement - 
 1) Make the front end bit responsive.
-2) I ll try to implement Pool thread instead of using Thread.
+2) I ll try to implement Pool thread instead of using Thread with django db connection pool.
 3) Look to solve for memory management from API response.
 4) All three API has different internal data structures so I ll try to look for solutions for that.
 5) try to shorten the codes if needed.
