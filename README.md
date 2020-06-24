@@ -26,12 +26,18 @@ Room for Improvement -
 Install pacakges : pip install -r requirements.txt
 
 Run project :
-window machine: cd Scripts > activate
+window machine: 
+
+                cd Scripts > activate
 
                 cd Search
                 
                 python manage.py runserver
                 
-linux machine : source Scripts\activate
-                cd Search
-                python manage.py runserver
+linux machine :
+
+      source Scripts\activate
+
+      cd Search
+
+      python manage.py runserver
